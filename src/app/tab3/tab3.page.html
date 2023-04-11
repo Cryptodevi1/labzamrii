@@ -23,13 +23,22 @@
       <p class = "p_background"> Згенерувати матрицю розміром NxN. Знайти добуток кожного стовпчику матриці. Виокремити стовпчики за допомогою кольору</p>
       <ion-item>
         <ion-label position = "floating">Розмір матриці</ion-label>
-        <ion-input type="number" id = "n" value="3" #Inputn></ion-input>
+        <ion-input type="number" id = "a" value="3" #Inputn></ion-input>
       </ion-item>
       <ion-button expand="block" (click)="arrayras(Inputn.value)"> Сформувати матрицю</ion-button>
       <ion-item>
         <ion-grid>
+          <ion-row *ngFor="let i of a">
+            <ion-col *ngFor="let j of i; let col = index" [ngStyle]="{'background-color': getColor(col)}">{{j}}</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <ion-item>
+        <ion-grid>
           <ion-row>
-            <ion-col></ion-col>
+            <ion-col *ngFor="let product of products">
+              Добуток: {{ product }}
+            </ion-col>
           </ion-row>
         </ion-grid>
       </ion-item>
